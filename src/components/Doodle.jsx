@@ -51,6 +51,11 @@ const Doodle = () => {
             setDoodleVersions(newDoodleVersions);
             setCurrentVersion(newCurrentVersion);
             setLatestVersion(newCurrentVersion);
+        } else {
+            // no doodle history
+            setDoodleVersions({});
+            setCurrentVersion(0);
+            setLatestVersion(0);
         }
     }
 
@@ -64,6 +69,11 @@ const Doodle = () => {
             newWorkingVersion[currentVersion] = newWorkingVersion[currentVersion].filter(i => `${i.x}-${i.y}` !== `${inputX}-${inputY}`);
         } else {
             // add item
+            if (!newWorkingVersion[currentVersion]) {
+                // we do not have an existing version, we'll need to add our initial version.
+                newWorkingVersion[currentVersion] = [];
+            }
+            // we have an existing version we'll be adding new pixels to
             newWorkingVersion[currentVersion].push({
                 // grabbing the x and y dom attributes added to each pixel that is clicked and adding those to our current version
                 x: inputX,
@@ -95,10 +105,15 @@ const Doodle = () => {
     }
 
     const createDoodleChangeMap = (doodleVersion) => {
-        return doodleVersion.reduce((doodleDictionary, current) => {
-            doodleDictionary[`${current.x}-${current.y}`] = true;
-            return doodleDictionary;
-        }, {});
+        if (doodleVersion) {
+            return doodleVersion.reduce((doodleDictionary, current) => {
+                doodleDictionary[`${current.x}-${current.y}`] = true;
+                return doodleDictionary;
+            }, {});
+        } else {
+            // no doodle version, so we'll simply pass back an empty object
+            return {}
+        }
     }
 
     const renderDoodle = () => {

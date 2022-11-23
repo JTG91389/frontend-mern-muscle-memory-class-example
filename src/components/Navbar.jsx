@@ -12,6 +12,7 @@ const Navbar = (props) => {
                     props.isAuth 
                     ? 
                     <>
+                        <NavLink className="nav-link"  to="/doodle">Doodle</NavLink>
                         <NavLink className="nav-link"  to="/profile">Profile</NavLink>
                         <span onClick={props.handleLogout} className="logout">Logout</span>
                     </>

@@ -15,6 +15,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Welcome from './components/Welcome';
+import Doodle from './components/Doodle';
 
 // const PrivateRoute = ({ element: element, ...rest}) => {
 //   let token = localStorage.getItem('jwtToken');
@@ -92,6 +93,9 @@ function App() {
           </Route>
           <Route exact="true" path="/" element={<Welcome />} />
           <Route path="/about" element={<About />} />
+          <Route exact path='/doodle' element={<PrivateRoute/>}>
+              <Route exact path='/doodle' element={<Doodle />}/>
+          </Route>
         </Routes>
       </div>
       <Footer />

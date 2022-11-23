@@ -21,3 +21,15 @@ REACT_APP_SERVER_URL=http://localhost:5000
 ```
 
 our backend project is configured to run on PORT 5000. 
+
+# Steps
+
+We will challenge you all to create this doodle app with the functionality to rewind our drawing using react on our frontend. 
+
+## Create the doodle pad component
+
+This will be a react component built of an n by n array of child react components
+
+### Create doodle cell component
+
+### Create rewind dropdown component

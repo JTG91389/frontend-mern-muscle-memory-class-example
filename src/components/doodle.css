@@ -1,0 +1,26 @@
+.pixel {
+    border: 1px solid darkgray;
+    width: 5%;
+    height: 1em;
+}
+
+.white {
+    background-color: white;
+}
+
+.red {
+    background-color: red;
+}
+
+.pixel-row {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.doodle-container {
+    display: block;
+    width: 100%;
+}
